@@ -1,0 +1,52 @@
+package mypackage;
+
+import java.io.FileOutputStream;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Excel {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+ XSSFWorkbook my1 =new XSSFWorkbook();
+ 
+ XSSFSheet mySheet= my1.createSheet("Sheet1");
+ 
+ XSSFRow firstRow= mySheet.createRow(0);
+ 
+ firstRow.createCell(0).setCellValue("Name");
+ firstRow.createCell(1).setCellValue("Age");
+ firstRow.createCell(2).setCellValue("E-mail");
+ 
+ XSSFRow SecondRow= mySheet.createRow(1);
+ 
+ SecondRow.createCell(0).setCellValue("John Doe");
+ SecondRow.createCell(1).setCellValue("30");
+ SecondRow.createCell(2).setCellValue("John@test.com");
+ 
+ XSSFRow ThirdRow= mySheet.createRow(2);
+ 
+ ThirdRow.createCell(0).setCellValue("Jane Doe");
+ ThirdRow.createCell(1).setCellValue("28");
+ ThirdRow.createCell(2).setCellValue("Jane@test.com");
+ 
+ XSSFRow FourthRow= mySheet.createRow(3);
+ 
+ FourthRow.createCell(0).setCellValue("Bob Smith");
+ FourthRow.createCell(1).setCellValue("35");
+ FourthRow.createCell(2).setCellValue("Jacky@example.com");
+ 
+ XSSFRow FifthRow= mySheet.createRow(4);
+ 
+ FifthRow.createCell(0).setCellValue("Swapnil");
+ FifthRow.createCell(1).setCellValue("37");
+ FifthRow.createCell(2).setCellValue("swapnil@example.com");
+
+ 
+ FileOutputStream fileout = new FileOutputStream("myexcelassign.xlsx");
+ my1.write(fileout);
+	}
+
+}
