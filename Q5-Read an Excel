@@ -1,0 +1,46 @@
+package mypackage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ReadExcel {
+
+		public static void main(String[] args) throws FileNotFoundException {
+		
+		try {
+	FileInputStream myfile = new FileInputStream("C:\\Users\\surya\\Desktop\\maven.xlsx");
+		
+	Workbook work = new XSSFWorkbook(myfile);
+	
+	Sheet mysheet = work.getSheetAt(0);
+
+	for(Row row : mysheet) {
+		
+		for(Cell cell : row) {
+			switch(cell.getCellType()) {
+			case STRING : 
+				System.out.println("Cell value is :: " + cell.getStringCellValue());
+				break;
+			case NUMERIC : 
+					System.out.println("cell value is :: " + cell.getNumericCellValue());
+					break;
+			case BOOLEAN :
+				System.out.println("cell value is :: " + cell.getBooleanCellValue());
+				break;
+			}
+		}
+	}
+		}
+		catch(Exception e) {
+		System.out.println("nothing");
+	}
+}
+
+}
+
+
