@@ -1,0 +1,32 @@
+package mypackage;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class WriteExcel {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+ XSSFWorkbook my =new XSSFWorkbook();
+ 
+ XSSFSheet mySheet= my.createSheet("Sheet1");
+ 
+ XSSFRow firstRow= mySheet.createRow(0);
+ 
+ firstRow.createCell(0).setCellValue("First Name");
+ firstRow.createCell(1).setCellValue("Last Name");
+ XSSFRow SecondRow= mySheet.createRow(1);
+ SecondRow.createCell(0).setCellValue("Surya");
+ SecondRow.createCell(1).setCellValue("Sevanthilingam");
+ 
+ FileOutputStream fileout = new FileOutputStream("myexcel.xlsx");
+ my.write(fileout);
+
+	}
+
+}
